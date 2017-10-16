@@ -1,0 +1,1936 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Borlay.Iota.Library</name>
+    </assembly>
+    <members>
+        <member name="T:Borlay.Iota.Library.Exceptions.IllegalStateException">
+            <summary>
+            This exception occurs when an illegal state is encountered
+            </summary>
+            <seealso cref="T:System.Exception" />
+        </member>
+        <member name="T:Borlay.Iota.Library.Exceptions.InvalidAddressException">
+            <summary>
+            This exception occurs when an invalid address is provided
+            </summary>
+            <seealso cref="T:System.ArgumentException" />
+        </member>
+        <member name="M:Borlay.Iota.Library.Exceptions.InvalidAddressException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Exceptions.InvalidAddressException"/> class.
+            </summary>
+            <param name="address">The address.</param>
+        </member>
+        <member name="T:Borlay.Iota.Library.Exceptions.NotEnoughBalanceException">
+            <summary>
+            This exception occurs when a transfer fails because their is not enough balance to perform the transfer
+            </summary>
+            <seealso cref="T:System.Exception" />
+        </member>
+        <member name="M:Borlay.Iota.Library.Exceptions.NotEnoughBalanceException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Exceptions.NotEnoughBalanceException"/> class.
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Exceptions.NotEnoughBalanceException.#ctor(System.Int64,System.Int64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Exceptions.NotEnoughBalanceException"/> class.
+            </summary>
+            <param name="totalValue">The total value.</param>
+        </member>
+        <member name="P:Borlay.Iota.Library.IotaApi.MaxAddressIndex">
+            <summary>
+            Gets or sets MaxAddressIndex. Default is 500.
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.IotaApi.Depth">
+            <summary>
+            Gets or sets the Depth
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.IotaApi.NonceSeeker">
+            <summary>
+            Gets or sets the NonceSeeker
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.IotaApi.RebroadcastMaximumPowTime">
+            <summary>
+            Gets or sets RebroadcastMaximumPowTime in milliseconds
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.IotaApi.IriApi">
+            <summary>
+            Gets the IriApi
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.IotaApi.Url">
+            <summary>
+            Gets the Url
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.IotaApi.GetAddress(System.String,System.Int32)">
+            <summary>
+            Generates and address and checks for hasTransaction and balance
+            </summary>
+            <param name="seed">Seed</param>
+            <param name="index">Address index</param>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.IotaApi.GetAddresses(System.String,System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Generates an addresses and checks for transactions and balances
+            </summary>
+            <param name="seed">Seed</param>
+            <param name="index">Address index to start</param>
+            <param name="count">Address count to generate</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.IotaApi.RenewTransactions(Borlay.Iota.Library.Models.AddressItem)">
+            <summary>
+            Renew hasTransaction property for address item
+            </summary>
+            <param name="addressItem">Address item to renew</param>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.IotaApi.GetTransactionItems(System.String[])">
+            <summary>
+            Gets transactions details and inclusion states by transactions hashes
+            </summary>
+            <param name="transactionHashes">The transactions hashes</param>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.IotaApi.GetBundleTransactionItems(System.String)">
+            <summary>
+            Gets transactions details and inclusion states by bundle hash
+            </summary>
+            <param name="bundleHash"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.IotaApi.RenewBalances(Borlay.Iota.Library.Models.AddressItem[])">
+            <summary>
+            Renew address items balances
+            </summary>
+            <param name="addressItems">Address items to renew</param>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.IotaApi.RenewAddresses(Borlay.Iota.Library.Models.AddressItem[])">
+            <summary>
+            Renew address hasTransaction and balance
+            </summary>
+            <param name="addressItems">Address items to renew</param>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.IotaApi.CreateTransactions(Borlay.Iota.Library.Models.TransferItem,System.String,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Finds addresses with balance and finds reminder and creates transaction items
+            </summary>
+            <param name="transferItem"></param>
+            <param name="seed"></param>
+            <param name="startFromIndex"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.IotaApi.CreateTransactions(Borlay.Iota.Library.Models.TransferItem,System.String,System.Collections.Generic.IEnumerable{Borlay.Iota.Library.Models.AddressItem},System.Threading.CancellationToken)">
+            <summary>
+            Finds reminder and creates transaction items
+            </summary>
+            <param name="transferItem"></param>
+            <param name="seed"></param>
+            <param name="addressItems"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.IotaApi.SendTransactions(Borlay.Iota.Library.Models.TransferItem,System.Collections.Generic.IEnumerable{Borlay.Iota.Library.Models.AddressItem},System.String,System.Threading.CancellationToken)">
+            <summary>
+            Renew balance and sends transfer items
+            </summary>
+            <param name="transferItem">The transfer items to send</param>
+            <param name="addressItems">The address items from which amount is send</param>
+            <param name="remainderAddress">The remainder where remaind amount is send</param>
+            <param name="cancellationToken">The cancellation token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.IotaApi.SendTransferWithoutRenewBalance(Borlay.Iota.Library.Models.TransferItem,System.Collections.Generic.IEnumerable{Borlay.Iota.Library.Models.AddressItem},System.String,System.Threading.CancellationToken)">
+            <summary>
+            Sends transfer without renew balance
+            </summary>
+            <param name="transferItem">The transfer items to send</param>
+            <param name="addressItems">The address items from which amount is send</param>
+            <param name="remainderAddress">The remainder where remaind amount is send</param>
+            <param name="cancellationToken">The cancellation token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.IotaApi.SendTransactions(System.Collections.Generic.IEnumerable{Borlay.Iota.Library.Models.TransactionItem},System.Threading.CancellationToken)">
+            <summary>
+            Attach transactions to tangle, broadcast and store.
+            </summary>
+            <param name="transactions">Transactions to send</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.IotaApi.SendTrytes(System.String[],System.Threading.CancellationToken)">
+            <summary>
+            Attach, broadcast and store trytes to tangle
+            </summary>
+            <param name="transactionTrytes"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.IotaApi.BroadcastAndStore(System.String[])">
+            <summary>
+            Broadcasts and stores the trytes
+            </summary>
+            <param name="trytes">Trytes to send</param>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.IotaExtensions.SendTransfer(Borlay.Iota.Library.IotaApi,Borlay.Iota.Library.Models.TransferItem,System.String,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Sends transfer with money.
+            </summary>
+            <param name="api"></param>
+            <param name="transferItem">Transfer item to send</param>
+            <param name="seed">Seed from which you want to send money.</param>
+            <param name="startFromIndex">Index to start search for address</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.IotaExtensions.SendTransfer(Borlay.Iota.Library.IotaApi,Borlay.Iota.Library.Models.TransferItem,System.Threading.CancellationToken)">
+            <summary>
+            Sends transfer without money
+            </summary>
+            <param name="api"></param>
+            <param name="transferItem">Transfer item</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns></returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.CommandConstants">
+            <summary>
+            This enumeration defines the core API call commands
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Iri.CommandConstants.GetNodeInfo">
+            <summary>
+            Get information about the node.
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Iri.CommandConstants.GetTips">
+            <summary>
+            Gets the tips of the node
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Iri.CommandConstants.FindTransactions">
+            <summary>
+            Finds the transactions using different search criteria <see cref="!:FindTransactionsRequest"/>
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Iri.CommandConstants.GetTransactionsToApprove">
+            <summary>
+            Gets the transactions to approve
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Iri.CommandConstants.AttachToTangle">
+            <summary>
+            Attaches to the tangle
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Iri.CommandConstants.GetBalances">
+            <summary>
+            Gets the balances
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Iri.CommandConstants.GetInclusionStates">
+            <summary>
+            Gets the inclusion state
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Iri.CommandConstants.GetTrytes">
+            <summary>
+            Gets the trytes
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Iri.CommandConstants.GetNeighbors">
+            <summary>
+            Gets the neighbours of the node
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Iri.CommandConstants.AddNeighbors">
+            <summary>
+            Adds neighbours to the node
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Iri.CommandConstants.RemoveNeighbors">
+            <summary>
+            Removes neighbours from the node
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Iri.CommandConstants.InterruptAttachingToTangle">
+            <summary>
+            Interrupt attaching to the tangle
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Iri.CommandConstants.BroadcastTransactions">
+            <summary>
+            Broadcasts transactions
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Iri.CommandConstants.StoreTransactions">
+            <summary>
+            Stores transactions
+            </summary>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.AddNeighborsRequest">
+            <summary>
+            This class represents the core API request 'AddNeighbors'.
+            It is used to add a neighbor to the node
+            </summary>
+            <seealso cref="T:Borlay.Iota.Library.Iri.Dto.IriRequestBase" />
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.AddNeighborsRequest.Uris">
+            <summary>
+            Gets or sets the uris.
+            </summary>
+            <value>
+            The uris.
+            </value>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.AddNeighborsRequest.#ctor(System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Iri.Dto.AddNeighborsRequest"/> class.
+            </summary>
+            <param name="uris">The uris of the neighbors to add.</param>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.AddNeighborsRequest.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.AddNeighborsResponse">
+            <summary>
+            Response of <see cref="T:Borlay.Iota.Library.Iri.Dto.AddNeighborsRequest"/>
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.AddNeighborsResponse.AddedNeighbors">
+            <summary>
+            Gets the number of added neighbors.
+            </summary>
+            <value>
+            The number of added neighbors.
+            </value>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.AddNeighborsResponse.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.AttachToTangleRequest">
+            <summary>
+            This class represents the core API request 'AttachToTangle'.
+            It is used to attach trytes to the tangle.
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.AttachToTangleRequest.#ctor(System.String,System.String,System.String[],System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Iri.Dto.AttachToTangleRequest"/> class.
+            </summary>
+            <param name="trunkTransaction">The trunk transaction.</param>
+            <param name="branchTransaction">The branch transaction.</param>
+            <param name="trytes">The trytes.</param>
+            <param name="minWeightMagnitude">The minimum weight magnitude.</param>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.AttachToTangleRequest.MinWeightMagnitude">
+            <summary>
+            Proof of Work intensity. Minimum value is 18
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.AttachToTangleRequest.TrunkTransaction">
+            <summary>
+            Trunk transaction to approve.
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.AttachToTangleRequest.BranchTransaction">
+            <summary>
+            Branch transaction to approve.
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.AttachToTangleRequest.Trytes">
+            <summary>
+            List of trytes (raw transaction data) to attach to the tangle.
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.AttachToTangleRequest.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.AttachToTangleResponse">
+            <summary>
+            Response of <see cref="T:Borlay.Iota.Library.Iri.Dto.AttachToTangleRequest"/>
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.AttachToTangleResponse.Trytes">
+            <summary>
+            Gets or sets the trytes.
+            </summary>
+            <value>
+            The trytes.
+            </value>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.AttachToTangleResponse.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.BroadcastTransactionsRequest">
+            <summary>
+            Broadcast a list of transactions to all neighbors. The input trytes for this call are provided by attachToTangle
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.BroadcastTransactionsRequest.#ctor(System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Iri.Dto.BroadcastTransactionsRequest"/> class.
+            </summary>
+            <param name="trytes">The trytes.</param>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.BroadcastTransactionsRequest.Trytes">
+            <summary>
+            Gets or sets the trytes representing the transactions
+            </summary>
+            <value>
+            The trytes.
+            </value>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.BroadcastTransactionsRequest.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.BroadcastTransactionsResponse">
+            <summary>
+            Response of <see cref="T:Borlay.Iota.Library.Iri.Dto.BroadcastTransactionsRequest"/>
+            </summary>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.FindTransactionsRequest">
+            <summary>
+            This class represents the core api request 'FindTransactions'
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.FindTransactionsRequest.#ctor(System.String[],System.String[],System.String[],System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Iri.Dto.FindTransactionsRequest"/> class.
+            </summary>
+            <param name="bundles">The bundles.</param>
+            <param name="addresses">The addresses.</param>
+            <param name="tags">The tags.</param>
+            <param name="approvees">The approvees.</param>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.FindTransactionsRequest.Bundles">
+            <summary>
+            Gets or sets the bundles.
+            </summary>
+            <value>
+            The bundles.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.FindTransactionsRequest.Addresses">
+            <summary>
+            Gets or sets the addresses.
+            </summary>
+            <value>
+            The addresses.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.FindTransactionsRequest.Tags">
+            <summary>
+            Gets or sets the tags.
+            </summary>
+            <value>
+            The tags.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.FindTransactionsRequest.Approvees">
+            <summary>
+            Gets or sets the approvees.
+            </summary>
+            <value>
+            The approvees.
+            </value>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.FindTransactionsResponse">
+            <summary>
+            Response of <see cref="T:Borlay.Iota.Library.Iri.Dto.FindTransactionsRequest"/>
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.FindTransactionsResponse.Hashes">
+            <summary>
+            Gets or sets the hashes.
+            </summary>
+            <value>
+            The hashes.
+            </value>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.FindTransactionsResponse.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.GetBalancesRequest">
+            <summary>
+            This class represents the core api request 'GetBalances'
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.GetBalancesRequest.#ctor(System.String[],System.Int64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Iri.Dto.GetBalancesRequest"/> class.
+            </summary>
+            <param name="addresses">The addresses.</param>
+            <param name="threshold">The threshold.</param>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetBalancesRequest.Threshold">
+            <summary>
+            Gets the threshold.
+            </summary>
+            <value>
+            The threshold.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetBalancesRequest.Addresses">
+            <summary>
+            Gets the addresses.
+            </summary>
+            <value>
+            The addresses.
+            </value>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.GetBalancesRequest.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.GetBalancesResponse">
+            <summary>
+            Response of <see cref="T:Borlay.Iota.Library.Iri.Dto.GetBalancesRequest"/>
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetBalancesResponse.Balances">
+            <summary>
+            Gets or sets the balances.
+            </summary>
+            <value>
+            The balances.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetBalancesResponse.Milestone">
+            <summary>
+            Gets or sets the milestone.
+            </summary>
+            <value>
+            The milestone.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetBalancesResponse.MilestoneIndex">
+            <summary>
+            Gets or sets the index of the milestone.
+            </summary>
+            <value>
+            The index of the milestone.
+            </value>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.GetBalancesResponse.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.GetInclusionStatesRequest">
+            <summary>
+            This class represents the core API request 'GetInclusionStates'
+            </summary>
+            <seealso cref="T:Borlay.Iota.Library.Iri.Dto.IriRequestBase" />
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.GetInclusionStatesRequest.#ctor(System.String[],System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Iri.Dto.GetInclusionStatesRequest"/> class.
+            </summary>
+            <param name="transactions">The transactions.</param>
+            <param name="tips">The tips.</param>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetInclusionStatesRequest.Transactions">
+            <summary>
+            Gets the transactions.
+            </summary>
+            <value>
+            The transactions.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetInclusionStatesRequest.Tips">
+            <summary>
+            Gets the tips.
+            </summary>
+            <value>
+            The tips.
+            </value>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.GetInclusionStatesRequest.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.GetInclusionStatesResponse">
+            <summary>
+            This class represents the response of <see cref="T:Borlay.Iota.Library.Iri.Dto.GetInclusionStatesRequest"/>
+            </summary>
+            <seealso cref="T:Borlay.Iota.Library.Iri.Dto.IriResponseBase" />
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetInclusionStatesResponse.States">
+            <summary>
+            Gets or sets the states.
+            </summary>
+            <value>
+            The states.
+            </value>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.GetNeighborsRequest">
+            <summary>
+            This class represents the core API request 'GetNeighbors'
+            </summary>
+            <seealso cref="T:Borlay.Iota.Library.Iri.Dto.IriRequestBase" />
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.GetNeighborsRequest.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Iri.Dto.GetNeighborsRequest"/> class.
+            </summary>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.GetNeighborsResponse">
+            <summary>
+            Response of <see cref="T:Borlay.Iota.Library.Iri.Dto.GetNeighborsRequest"/>
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetNeighborsResponse.Neighbors">
+            <summary>
+            Gets or sets the neighbors.
+            </summary>
+            <value>
+            The neighbors.
+            </value>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.GetNodeInfoRequest">
+            <summary>
+            Returns information about your node
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.GetNodeInfoRequest.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Iri.Dto.GetNodeInfoRequest"/> class.
+            </summary>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.GetNodeInfoResponse">
+            <summary>
+            This class represents the response of <see cref="T:Borlay.Iota.Library.Iri.Dto.GetNodeInfoRequest"/>
+            </summary>
+            <seealso cref="T:Borlay.Iota.Library.Iri.Dto.IriResponseBase" />
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetNodeInfoResponse.AppName">
+            <summary>
+            Name of the IOTA software you're currently using (IRI stands for Initial Reference Implementation).
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetNodeInfoResponse.AppVersion">
+            <summary>
+            The version of the IOTA software you're currently running.
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetNodeInfoResponse.JreAvailableProcessors">
+            <summary>
+            Available cores on your machine for JRE.  
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetNodeInfoResponse.JreFreeMemory">
+            <summary>
+            The amount of free memory in the Java Virtual Machine.
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetNodeInfoResponse.JreMaxMemory">
+            <summary>
+            The maximum amount of memory that the Java virtual machine will attempt to use.
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetNodeInfoResponse.JreTotalMemory">
+            <summary>
+            The total amount of memory in the Java virtual machine.
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetNodeInfoResponse.LatestMilestone">
+            <summary>
+            Latest milestone that was signed off by the coordinator. 
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetNodeInfoResponse.LatestMilestoneIndex">
+            <summary>
+            Index of the latest milestone.
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetNodeInfoResponse.LatestSolidSubtangleMilestone">
+            <summary>
+            The latest milestone which is solid and is used for sending transactions. 
+            For a milestone to become solid your local node must basically approve the subtangle of coordinator-approved transactions,
+            and have a consistent view of all referenced transactions. 
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetNodeInfoResponse.LatestSolidSubtangleMilestoneIndex">
+            <summary>
+             Index of the latest solid subtangle.
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetNodeInfoResponse.Neighbors">
+            <summary>
+            Number of neighbors you are directly connected with.
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetNodeInfoResponse.PacketsQueueSize">
+            <summary>
+            Packets which are currently queued up
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetNodeInfoResponse.Time">
+            <summary>
+            Current UNIX timestamp.
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetNodeInfoResponse.Tips">
+            <summary>
+            Number of tips in the network.
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetNodeInfoResponse.TransactionsToRequest">
+            <summary>
+            Transactions to request during syncing process.
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetNodeInfoResponse.JreVersion">
+            <summary>
+            java runtime environment version.
+            </summary>
+            <value>
+            The jre version.
+            </value>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.GetNodeInfoResponse.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.GetTipsRequest">
+            <summary>
+            This class represents the core API request 'GetTips'
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.GetTipsRequest.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Iri.Dto.GetTipsRequest"/> class.
+            </summary>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.GetTipsResponse">
+            <summary>
+            This class represents the response of <see cref="T:Borlay.Iota.Library.Iri.Dto.GetTipsRequest"/>
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetTipsResponse.Hashes">
+            <summary>
+            Gets or sets the hashes.
+            </summary>
+            <value>
+            The hashes.
+            </value>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.GetTipsResponse.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.GetTransactionsToApproveRequest">
+            <summary>
+            This class represents the core API call 'GetTransactionsToApprove'
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.GetTransactionsToApproveRequest.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Iri.Dto.GetTransactionsToApproveRequest"/> class.
+            </summary>
+            <param name="depth">The depth.</param>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetTransactionsToApproveRequest.Depth">
+            <summary>
+            Gets the depth.
+            </summary>
+            <value>
+            The depth.
+            </value>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.GetTransactionsToApproveRequest.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.GetTransactionsToApproveResponse">
+            <summary>
+            This class represents the response of <see cref="T:Borlay.Iota.Library.Iri.Dto.GetTransactionsToApproveRequest"/>
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetTransactionsToApproveResponse.TrunkTransaction">
+            <summary>
+            Gets or sets the trunk transaction.
+            </summary>
+            <value>
+            The trunk transaction.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetTransactionsToApproveResponse.BranchTransaction">
+            <summary>
+            Gets or sets the branch transaction.
+            </summary>
+            <value>
+            The branch transaction.
+            </value>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.GetTransactionsToApproveResponse.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.GetTrytesRequest">
+            <summary>
+            This class represents the core API request 'GetTrytes'
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.GetTrytesRequest.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Iri.Dto.GetTrytesRequest"/> class.
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetTrytesRequest.Hashes">
+            <summary>
+            Gets or sets the hashes.
+            </summary>
+            <value>
+            The hashes.
+            </value>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.GetTrytesRequest.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.GetTrytesResponse">
+            <summary>
+            This class represents the response of <see cref="T:Borlay.Iota.Library.Iri.Dto.GetTrytesRequest"/>
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.GetTrytesResponse.Trytes">
+            <summary>
+            Gets or sets the trytes.
+            </summary>
+            <value>
+            The trytes.
+            </value>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.GetTrytesResponse.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.InterruptAttachingToTangleRequest">
+            <summary>
+            This class represents the core api request 'InterruptAttachingToTangle'
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.InterruptAttachingToTangleRequest.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Iri.Dto.InterruptAttachingToTangleRequest"/> class.
+            </summary>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.InterruptAttachingToTangleResponse">
+            <summary>
+            This class represents the response of <see cref="T:Borlay.Iota.Library.Iri.Dto.InterruptAttachingToTangleRequest"/>
+            </summary>
+            <seealso cref="T:Borlay.Iota.Library.Iri.Dto.IriResponseBase" />
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.IriRequestBase">
+            <summary>
+            This class serves as base class for the different core API calls/requests
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.IriRequestBase.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Iri.Dto.IriRequestBase"/> class.
+            </summary>
+            <param name="command">The command.</param>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.IriRequestBase.Command">
+            <summary>
+            Gets or sets the command.
+            </summary>
+            <value>
+            The command.
+            </value>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.IriResponseBase">
+            <summary>
+            This class represents the base class of different core API response classes
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.IriResponseBase.Duration">
+            <summary>
+            Gets or sets the duration.
+            </summary>
+            <value>
+            The duration.
+            </value>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.RemoveNeighborsRequest">
+            <summary>
+            This class represents the core api request 'RemoveNeighbors'
+            </summary>
+            <seealso cref="T:Borlay.Iota.Library.Iri.Dto.IriRequestBase" />
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.RemoveNeighborsRequest.#ctor(System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Iri.Dto.RemoveNeighborsRequest"/> class.
+            </summary>
+            <param name="uris">The uris.</param>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.RemoveNeighborsRequest.Uris">
+            <summary>
+            Gets or sets the uris of the neighbours to remove
+            </summary>
+            <value>
+            The uris of the neighbours to remove.
+            </value>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.RemoveNeighborsRequest.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.RemoveNeighborsResponse">
+            <summary>
+            This class represents the response of <see cref="T:Borlay.Iota.Library.Iri.Dto.RemoveNeighborsRequest"/>
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.RemoveNeighborsResponse.RemovedNeighbors">
+            <summary>
+            Gets or sets the number of removed neighbors.
+            </summary>
+            <value>
+            The removed neighbors.
+            </value>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.RemoveNeighborsResponse.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.StoreTransactionsRequest">
+            <summary>
+            This class represents the core API request 'StoreTransactions'.
+            It stores transactions into the local storage. The trytes to be used for this call are returned by attachToTangle.
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.StoreTransactionsRequest.#ctor(System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Iri.Dto.StoreTransactionsRequest"/> class.
+            </summary>
+            <param name="trytes">The trytes.</param>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.Dto.StoreTransactionsRequest.Trytes">
+            <summary>
+            Gets or sets the trytes.
+            </summary>
+            <value>
+            The trytes.
+            </value>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.Dto.StoreTransactionsRequest.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.Dto.StoreTransactionsResponse">
+            <summary>
+            This class represents the response of <see cref="T:Borlay.Iota.Library.Iri.Dto.StoreTransactionsRequest"/>
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.GenericWebClient.Url">
+            <summary>
+            Gets or sets the url
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.GenericWebClient.MaximumRetryCount">
+            <summary>
+            Sets or gets MaximumRetryCount. Default is 10. Look at RequestErrorHandler for more handling.
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.GenericWebClient.RequestErrorHandler">
+            <summary>
+            Gets or sets RequestErrorHandler
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.GenericWebClient.Log">
+            <summary>
+            Gets or sets request log delegate
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.GenericWebClient.RequestAsync``1(System.Object,System.Threading.CancellationToken)">
+            <summary>
+            Requests the specified request asynchronously
+            </summary>
+            <typeparam name="TRequest">The type of the request.</typeparam>
+            <typeparam name="TResponse">The type of the response.</typeparam>
+            <param name="request">The request.</param>
+        </member>
+        <member name="T:Borlay.Iota.Library.Iri.IGenericWebClient">
+            <summary>
+            This interface abstracts a generic version of the core api that is used internally.
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.IGenericWebClient.Url">
+            <summary>
+            Gets the url.
+            </summary>
+            <value>
+            The hostname.
+            </value>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.IGenericWebClient.RequestAsync``1(System.Object,System.Threading.CancellationToken)">
+            <summary>
+            Requests the specified request asynchronously
+            </summary>
+            <typeparam name="TRequest">The type of the request.</typeparam>
+            <param name="request">The request.</param>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.IriApi.MinWeightMagnitude">
+            <summary>
+            Gets or sets the MinWeightMagnitude. Default is 15
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.IriApi.TransactionApproveDepth">
+            <summary>
+            Gets or sets the TransactionApproveDepth. Default is 9
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.IriApi.WebClient">
+            <summary>
+            Gets the WebClient
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.IriExtensions.RequestAsync``1(Borlay.Iota.Library.Iri.IGenericWebClient,System.Object)">
+            <summary>
+            Requests the specified request asynchronously
+            </summary>
+            <typeparam name="TResponse">The type of the response.</typeparam>
+            <param name="request">The request.</param>
+        </member>
+        <member name="M:Borlay.Iota.Library.Iri.IriExtensions.RenewBalances(Borlay.Iota.Library.Iri.IriApi,Borlay.Iota.Library.Models.AddressItem[])">
+            <summary>
+            Renew address items balances
+            </summary>
+            <param name="api">Iri api</param>
+            <param name="addressItems">Address items to renew</param>
+            <returns></returns>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.IRequestErrorHandler.RetryCount">
+            <summary>
+            Gets or sets RetryCount. It can't reach GenericWebClient.MaximumRetryCount
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Iri.RequestErrorHandler.RetryCount">
+            <summary>
+            Gets or sets RetryCount. It can't reach GenericWebClient.MaximumRetryCount
+            </summary>
+        </member>
+        <member name="T:Borlay.Iota.Library.Models.AddressItem">
+            <summary>
+            This class represents an AddressInfo
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.AddressItem.PrivateKey">
+            <summary>
+            Gets or sets the private key
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.AddressItem.Balance">
+            <summary>
+            Gets or sets the balance.
+            </summary>
+            <value>
+            The balance.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.AddressItem.Index">
+            <summary>
+            Gets or sets the index of the key.
+            </summary>
+            <value>
+            The index of the key.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.AddressItem.Transactions">
+            <summary>
+            Gets the transactions
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.AddressModelBase.Address">
+            <summary>
+            Gets or sets the address.
+            </summary>
+            <value>
+            The address.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.IApproveTransactions.TrunkTransaction">
+            <summary>
+            Gets or sets the trunk transaction.
+            </summary>
+            <value>
+            The trunk transaction.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.IApproveTransactions.BranchTransaction">
+            <summary>
+            Gets or sets the branch transaction.
+            </summary>
+            <value>
+            The branch transaction.
+            </value>
+        </member>
+        <member name="T:Borlay.Iota.Library.Models.Neighbor">
+            <summary>
+            This class represents a neigbhor
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.Neighbor.NumberOfAllTransactions">
+            <summary>
+            Gets or sets the number of all transactions.
+            </summary>
+            <value>
+            The number of all transactions.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.Neighbor.NumberOfInvalidTransactions">
+            <summary>
+            Gets or sets the number of invalid transactions.
+            </summary>
+            <value>
+            The number of invalid transactions.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.Neighbor.NumberOfNewTransactions">
+            <summary>
+            Gets or sets the number of new transactions.
+            </summary>
+            <value>
+            The number of new transactions.
+            </value>
+        </member>
+        <member name="M:Borlay.Iota.Library.Models.Neighbor.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Models.Signature">
+            <summary>
+            Thic class represents a signature
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Models.Signature.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Models.Signature"/> class.
+            </summary>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.Signature.SignatureFragments">
+            <summary>
+            Gets or sets the signature fragments.
+            </summary>
+            <value>
+            The signature fragments.
+            </value>
+        </member>
+        <member name="M:Borlay.Iota.Library.Models.Signature.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.TransactionBundle.Length">
+            <summary>
+            Gets the length of the bundle
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Models.TransactionExtensions.NormalizedBundle(System.String)">
+            <summary>
+            Normalizeds the bundle.
+            </summary>
+            <param name="bundleHash">The bundle hash.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.TransactionHash.Hash">
+            <summary>
+            Gets or sets the hash.
+            </summary>
+        </member>
+        <member name="T:Borlay.Iota.Library.Models.TransactionItem">
+            <summary>
+            This class represents an iota transaction
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Models.TransactionItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Models.TransactionItem"/> class.
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Models.TransactionItem.#ctor(System.String,Borlay.Iota.Library.Utils.ICurl)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Models.TransactionItem"/> class.
+            </summary>
+            <param name="trytes">The trytes representing the transaction</param>
+            <param name="curl">The curl implementation.</param>
+            <exception cref="T:System.ArgumentException">
+            trytes must non-null
+            or
+            position " + i + "must not be '9'
+            </exception>
+        </member>
+        <member name="M:Borlay.Iota.Library.Models.TransactionItem.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Models.TransactionItem"/> class.
+            </summary>
+            <param name="trytes">The trytes representing the transaction</param>
+        </member>
+        <member name="M:Borlay.Iota.Library.Models.TransactionItem.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Models.TransactionItem"/> class.
+            </summary>
+            <param name="address">The address.</param>
+            <param name="value">The value.</param>
+            <param name="tag">The tag.</param>
+            <param name="timestamp">The timestamp.</param>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.TransactionItem.Tag">
+            <summary>
+            Gets or sets the tag.
+            </summary>
+            <value>
+            The tag.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.TransactionItem.Type">
+            <summary>
+            Gets or sets the type.
+            </summary>
+            <value>
+            The type.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.TransactionItem.SignatureMessageChunk">
+            <summary>
+            Gets or sets the signature message chunk.
+            </summary>
+            <value>
+            The signature message chunk.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.TransactionItem.Digest">
+            <summary>
+            Gets or sets the digest.
+            </summary>
+            <value>
+            The digest.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.TransactionItem.Address">
+            <summary>
+            Gets or sets the address.
+            </summary>
+            <value>
+            The address.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.TransactionItem.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+            <value>
+            The value.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.TransactionItem.Timestamp">
+            <summary>
+            Gets or sets the timestamp.
+            </summary>
+            <value>
+            The timestamp.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.TransactionItem.Bundle">
+            <summary>
+            Gets or sets the bundle.
+            </summary>
+            <value>
+            The bundle.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.TransactionItem.TrunkTransaction">
+            <summary>
+            Gets or sets the trunk transaction.
+            </summary>
+            <value>
+            The trunk transaction.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.TransactionItem.BranchTransaction">
+            <summary>
+            Gets or sets the branch transaction.
+            </summary>
+            <value>
+            The branch transaction.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.TransactionItem.SignatureFragment">
+            <summary>
+            Gets or sets the signature fragment.
+            </summary>
+            <value>
+            The signature fragment.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.TransactionItem.LastIndex">
+            <summary>
+            Gets or sets the last index.
+            </summary>
+            <value>
+            The last index.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.TransactionItem.CurrentIndex">
+            <summary>
+            Gets or sets the index of the current.
+            </summary>
+            <value>
+            The index of the current.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.TransactionItem.Nonce">
+            <summary>
+            Gets or sets the nonce.
+            </summary>
+            <value>
+            The nonce.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.TransactionItem.Persistence">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Borlay.Iota.Library.Models.TransactionItem"/> is persistance.
+            </summary>
+            <value>
+              <c>true</c> if persistance; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Borlay.Iota.Library.Models.TransactionItem.ToTransactionTrytes">
+            <summary>
+            Converts the transaction to the corresponding trytes representation
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Models.TransactionItem.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Models.TransferItem">
+            <summary>
+            This class represents a Transfer
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Models.TransferItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Borlay.Iota.Library.Models.TransferItem"/> class.
+            </summary>
+            <param name="address">The address.</param>
+            <param name="value">The value.</param>
+            <param name="message">The message.</param>
+            <param name="tag">The tag.</param>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.TransferItem.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+            <value>
+            The value.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.TransferItem.Message">
+            <summary>
+            Gets or sets the message.
+            </summary>
+            <value>
+            The message.
+            </value>
+        </member>
+        <member name="P:Borlay.Iota.Library.Models.TransferItem.Tag">
+            <summary>
+            Gets or sets the tag.
+            </summary>
+            <value>
+            The tag.
+            </value>
+        </member>
+        <member name="M:Borlay.Iota.Library.Models.TransferItem.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.TaskIota.Yield">
+            <summary>
+            For async functions. Can be used like TaskIota.Yield().ConfigureAwait(false);
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Utils.Checksum">
+            <summary>
+            This class defines utility methods to add/remove the checksum to/from an address
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Checksum.AddChecksum(System.String)">
+            <summary>
+            Adds the checksum to the specified address
+            </summary>
+            <param name="address">An address without checksum</param>
+            <returns>The address with the appended checksum </returns>
+            <exception cref="T:Borlay.Iota.Library.Exceptions.InvalidAddressException">is thrown when an invalid address is provided</exception>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Checksum.RemoveChecksum(System.String)">
+            <summary>
+            Removes the checksum from the specified address with checksum
+            </summary>
+            <param name="addressWithChecksum">The address with checksum.</param>
+            <returns>the specified address without checksum</returns>
+            <exception cref="T:Borlay.Iota.Library.Exceptions.InvalidAddressException">is thrown when the specified address is not an address with checksum</exception>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Checksum.IsValidChecksum(System.String)">
+            <summary>
+            Determines whether the specified address with checksum has a valid checksum.
+            </summary>
+            <param name="addressWithChecksum">The address with checksum.</param>
+            <returns>
+              <c>true</c> if the specified address with checksum has a valid checksum [the specified address with checksum]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Utils.Constants">
+            <summary>
+            This class defines different constants that are used accros the library
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Utils.Constants.TryteAlphabet">
+            <summary>
+            This String contains all possible characters of the tryte alphabet
+            </summary>                              
+        </member>
+        <member name="F:Borlay.Iota.Library.Utils.Constants.SeedLengthMax">
+            <summary>
+            The maximum seed length
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Utils.Constants.EmptyHash">
+            <summary>
+            This String represents the empty hash consisting of '9'
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Utils.Constants.AddressLengthWithoutChecksum">
+            <summary>
+            The length of an address without checksum
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Utils.Constants.AddressLengthWithChecksum">
+            <summary>
+            The address length with checksum
+            </summary>
+        </member>
+        <member name="T:Borlay.Iota.Library.Utils.Converter">
+            <summary>
+            This class provides a set of utility methods to are used to convert between different formats
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Utils.Converter.Radix">
+            <summary>
+            The radix
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Utils.Converter.MaxTritValue">
+            <summary>
+            The maximum trit value
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Utils.Converter.MinTritValue">
+            <summary>
+            The minimum trit value
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Utils.Converter.NumberOfTritsInAByte">
+            <summary>
+            The number of trits in a byte
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Utils.Converter.NumberOfTritsInATryte">
+            <summary>
+            The number of trits in a tryte
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Converter.ToBytes(System.Int32[],System.Int32,System.Int32)">
+            <summary>
+            Converts the specified trits array to bytes
+            </summary>
+            <param name="trits">The trits.</param>
+            <param name="offset">The offset to start from.</param>
+            <param name="size">The size.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Converter.ToBytes(System.Int32[])">
+            <summary>
+            Converts the specified trits to trytes
+            </summary>
+            <param name="trits">The trits.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Converter.GetTrits(System.SByte[],System.Int32[])">
+            <summary>
+            Gets the trits from the specified bytes and stores it into the provided trits array
+            </summary>
+            <param name="bytes">The bytes.</param>
+            <param name="trits">The trits.</param>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Converter.ToTritsString(System.String)">
+            <summary>
+            Converts the specified trinary encoded string into trits
+            </summary>
+            <param name="trytes">The trytes.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Converter.ToTrits(System.String,System.Int32)">
+            <summary>
+            Converts the specified trinary encoded string into a trits array of the specified length.
+            If the trytes string results in a shorter then specified trits array, then the remainder is padded we zeroes
+            </summary>
+            <param name="trytes">The trytes.</param>
+            <param name="length">The length.</param>
+            <returns>a trits array</returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Converter.ToTrits(System.String)">
+            <summary>
+            Converts the specified trinary encoded trytes string to trits
+            </summary>
+            <param name="trytes">The trytes.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Converter.CopyTrits(System.String,System.Int32[])">
+            <summary>
+            Copies the trits from the input string into the destination array
+            </summary>
+            <param name="input">The input string</param>
+            <param name="destination">The destination array.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Converter.CopyTrits(System.Int64,System.Int32[],System.Int32,System.Int32)">
+            <summary>
+            Copies the trits in long representation into the destination array
+            </summary>
+            <param name="value">The value.</param>
+            <param name="destination">The destination array.</param>
+            <param name="offset">The offset from which copying is started.</param>
+            <param name="size">The size.</param>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Converter.ToTrytes(System.Int32[],System.Int32,System.Int32)">
+            <summary>
+            Converts the trits array to a trytes string
+            </summary>
+            <param name="trits">The trits.</param>
+            <param name="offset">The offset from which copying is started.</param>
+            <param name="size">The size.</param>
+            <returns>a trytes string</returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Converter.ToTrytes(System.Int32[])">
+            <summary>
+            Converts the trits array to a trytes string
+            </summary>
+            <param name="trits">The trits.</param>
+            <returns>a trytes string</returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Converter.ToTryteValue(System.Int32[],System.Int32)">
+            <summary>
+            Converts the specified trits array to trytes in integer representation
+            </summary>
+            <param name="trits">The trits.</param>
+            <param name="offset">The offset.</param>
+            <returns>trytes in integer representation</returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Converter.ToValue(System.Int32[])">
+            <summary>
+            Converts the specified trits to its corresponding integer value
+            </summary>
+            <param name="trits">The trits.</param>
+            <returns>an integer value representing the corresponding trits</returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Converter.ToLongValue(System.Int32[])">
+            <summary>
+             Converts the specified trits to its corresponding integer value
+            </summary>
+            <param name="trits">The trits.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Converter.Increment(System.Int32[],System.Int32)">
+            <summary>
+            Increments the specified trits.
+            </summary>
+            <param name="trits">The trits.</param>
+            <param name="size">The size.</param>
+        </member>
+        <member name="T:Borlay.Iota.Library.Utils.Curl">
+            <summary>
+            (c) 2016 Come-from-Beyond
+            
+            Curl belongs to the sponge function family.
+            
+            </summary>
+        </member>
+        <member name="F:Borlay.Iota.Library.Utils.Curl.HashLength">
+            <summary>
+            The hash length
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Curl.Clone">
+            <summary>
+            Clones this instance.
+            </summary>
+            <returns>a new instance</returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Curl.Absorb(System.Int32[],System.Int32,System.Int32)">
+            <summary>
+            Absorbs the specified trits.
+            </summary>
+            <param name="trits">The trits.</param>
+            <param name="offset">The offset to start from.</param>
+            <param name="length">The length.</param>
+            <returns>the ICurl instance (used for method chaining)</returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Curl.Absorb(System.Int32[])">
+            <summary>
+            Absorbs the specified trits.
+            </summary>
+            <param name="trits">The trits.</param>
+            <returns>
+            the ICurl instance (used for method chaining)
+            </returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Curl.Squeeze(System.Int32[],System.Int32,System.Int32)">
+            <summary>
+            Squeezes the specified trits.
+            </summary>
+            <param name="trits">The trits.</param>
+            <param name="offset">The offset to start from.</param>
+            <param name="length">The length.</param>
+            <returns>
+            the squeezed trits
+            </returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Curl.Squeeze(System.Int32[])">
+            <summary>
+            Squeezes the specified trits.
+            </summary>
+            <param name="trits">The trits.</param>
+            <returns>
+            the squeezed trits
+            </returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Curl.Transform">
+            <summary>
+            Transforms this instance.
+            </summary>
+            <returns>
+            the ICurl instance (used for method chaining)
+            </returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.Curl.Reset">
+            <summary>
+            Resets this state.
+            </summary>
+            <returns>
+            the ICurl instance (used for method chaining)
+            </returns>
+        </member>
+        <member name="P:Borlay.Iota.Library.Utils.Curl.State">
+            <summary>
+            Gets or sets the state.
+            </summary>
+            <value>
+            The state.
+            </value>
+        </member>
+        <member name="T:Borlay.Iota.Library.Utils.ICurl">
+            <summary>
+            This interface abstracts the curl hashing algorithm
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.ICurl.Clone">
+            <summary>
+            Clones this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.ICurl.Absorb(System.Int32[],System.Int32,System.Int32)">
+            <summary>
+            Absorbs the specified trits.
+            </summary>
+            <param name="trits">The trits.</param>
+            <param name="offset">The offset to start from.</param>
+            <param name="length">The length.</param>
+            <returns>the ICurl instance (used for method chaining)</returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.ICurl.Absorb(System.Int32[])">
+            <summary>
+            Absorbs the specified trits.
+            </summary>
+            <param name="trits">The trits.</param>
+            <returns>the ICurl instance (used for method chaining)</returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.ICurl.Squeeze(System.Int32[],System.Int32,System.Int32)">
+            <summary>
+            Squeezes the specified trits.
+            </summary>
+            <param name="trits">The trits.</param>
+            <param name="offset">The offset to start from.</param>
+            <param name="length">The length.</param>
+            <returns>the squeezed trits</returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.ICurl.Squeeze(System.Int32[])">
+            <summary>
+            Squeezes the specified trits.
+            </summary>
+            <param name="trits">The trits.</param>
+            <returns>the squeezed trits</returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.ICurl.Transform">
+            <summary>
+            Transforms this instance.
+            </summary>
+            <returns>the ICurl instance (used for method chaining)</returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.ICurl.Reset">
+            <summary>
+            Resets this state.
+            </summary>
+            <returns>the ICurl instance (used for method chaining)</returns>
+        </member>
+        <member name="P:Borlay.Iota.Library.Utils.ICurl.State">
+            <summary>
+            Gets or sets the state.
+            </summary>
+            <value>
+            The state.
+            </value>
+        </member>
+        <member name="T:Borlay.Iota.Library.Utils.InputValidator">
+            <summary>
+            This class provides methods to validate the parameters of different iota API methods
+            </summary>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.InputValidator.IsAddress(System.String)">
+            <summary>
+            Determines whether the specified string is an adrdress.
+            </summary>
+            <param name="address">The address.</param>
+            <returns>
+              <c>true</c> if the specified string is an address; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.InputValidator.CheckAddress(System.String)">
+            <summary>
+            Checks whether the specified address is an address and throws and exception if the address is invalid
+            </summary>
+            <param name="address">address to check</param>
+            <exception cref="T:Borlay.Iota.Library.Exceptions.InvalidAddressException">exception which is thrown when the address is invalid</exception>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.InputValidator.IsValue(System.String)">
+            <summary>
+            Determines whether the specified string represents an integer value.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>
+              <c>true</c> the specified string represents an integer value; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.InputValidator.IsArrayOfHashes(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Determines whether the specified array contains only valid hashes
+            </summary>
+            <param name="hashes">The hashes.</param>
+            <returns>
+              <c>true</c> the specified array contains only valid hashes; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.InputValidator.IsTrytes(System.String,System.Int32)">
+            <summary>
+            Determines whether the specified string contains only characters from the trytes alphabet (see <see cref="F:Borlay.Iota.Library.Utils.Constants.TryteAlphabet"/>)
+            </summary>
+            <param name="trytes">The trytes.</param>
+            <param name="length">The length.</param>
+            <returns>
+              <c>true</c> if the specified trytes are trytes otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.InputValidator.IsArrayOfTrytes(System.Collections.Generic.IEnumerable{System.String},System.Int32)">
+            <summary>
+            Determines whether the specified string array contains only trytes
+            </summary>
+            <param name="trytes">The trytes.</param>
+            <param name="length">The length.</param>
+            <returns>
+              <c>true</c> if the specified array contains only valid trytes otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.InputValidator.ValidateTransfers(System.Collections.Generic.IEnumerable{Borlay.Iota.Library.Models.TransferItem})">
+            <summary>
+            Determines whether the specified transfers are valid
+            </summary>
+            <param name="transfers">The transfers.</param>
+            <returns>
+              <c>true</c> if the specified transfers are valid; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.InputValidator.ValidateTransfer(Borlay.Iota.Library.Models.TransferItem)">
+            <summary>
+            Determines whether the specified transfer is valid.
+            </summary>
+            <param name="transfer">The transfer.</param>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.InputValidator.ValidateTrytes(System.String,System.String)">
+            <summary>
+            Determines whether the specified value is valid.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.InputValidator.CheckIfValidSeed(System.String)">
+            <summary>
+            Checks if the seed is valid. If not, an exception is thrown.
+            </summary>
+            <param name="seed">The seed.</param>
+            <exception cref="T:Borlay.Iota.Library.Exceptions.IllegalStateException">
+            Invalid Seed: Format not in trytes
+            or
+            Invalid Seed: Seed too long
+            </exception>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.InputValidator.PadSeedIfNecessary(System.String)">
+            <summary>
+            Pads the seed if necessary.
+            </summary>
+            <param name="seed">The seed.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.InputValidator.CheckIfArrayOfTrytes(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Checks if the specified array is an array of trytes. If not an exception is thrown.
+            </summary>
+            <param name="trytes">The trytes.</param>
+            <exception cref="T:Borlay.Iota.Library.Exceptions.InvalidTryteException"></exception>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.InputValidator.IsNinesTrytes(System.String,System.Int32)">
+            <summary>
+            Determines whether the specified string consist only of '9'.
+            </summary>
+            <param name="trytes">The trytes.</param>
+            <param name="length">The length.</param>
+            <returns>
+              <c>true</c> if the specified string consist only of '9'; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Borlay.Iota.Library.Utils.IotaApiUtils.NewAddress(System.Int32[],System.Boolean,Borlay.Iota.Library.Utils.ICurl,System.Threading.CancellationToken)">
+            <summary>
+             Generates a new address
+            </summary>
+            <param name="seed"></param>
+            <param name="index"></param>
+            <param name="checksum"></param>
+            <param name="curl"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Borlay.Iota.Library.Utils.Signing">
+            <summary>
+            Ask cfb
+            </summary>
+        </member>
+    </members>
+</doc>
